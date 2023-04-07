@@ -1,4 +1,4 @@
-// Replace the text in the HTML with your own message. Run the server and use your web browser to test your changes.
+// Change the location in the response to "Mars". Run the server and make a request to it with curl using the --verbose flag. What is the value of the Content-Length response header?
 
 import { createServer } from "node:http";
 
@@ -9,9 +9,9 @@ const server = createServer((request, response) => {
 
   response.setHeader("Content-Type", "text/html");
 
-  const myMessage = "Hello ";
+  const jsonResponse = JSON.stringify({ location: "Mars" });
 
-  response.end(`<html><body><h1>${myMessage}</h1></body></html>`);
+  response.end(jsonResponse);
 });
 
 server.listen(3000, () => {
