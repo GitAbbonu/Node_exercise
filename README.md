@@ -1,1 +1,3 @@
-# Create a script that uses the Node.js core fs.writeFile() (callback API) method to write a text file. The documentation for this method is on the Node.js File system page.
+# The luckyDraw function returns a promise. Create a promise chain where the function is called for for each of the players: Joe, Caroline and Sabrina
+
+Log out the resolved value for each promise and handle any promise rejections in the chain.
