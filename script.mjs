@@ -1,10 +1,12 @@
-import figlet from "figlet";
+import * as fs from "fs";
 
-figlet("Hello World!!", function (err, data) {
+const fileName = "example.txt";
+const fileContents = "This is some example text.";
+
+fs.writeFile(fileName, fileContents, function (err) {
   if (err) {
-    console.log("Something went wrong...");
-    console.dir(err);
+    console.error(`Failed to write file: ${err}`);
     return;
   }
-  console.log(data);
+  console.log(`File ${fileName} written successfully!`);
 });
