@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/GitAbbonu/Node_exercise#readme",
   "dependencies": {
-    "crypto-js": "^4.1.1"
+    "crypto-js": "^4.1.1",
+    "figlet": "^1.6.0"
   }
 }
