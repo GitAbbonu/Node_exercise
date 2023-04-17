@@ -1,7 +1,13 @@
 import express from "express";
 import "express-async-errors";
 import morgan from "morgan";
-import { getAll } from "./controllers/planets";
+import {
+  getAll,
+  getOneByID,
+  createP,
+  updateP,
+  deleteP,
+} from "./controllers/planets";
 
 const server = express();
 const port = 3000;
@@ -16,3 +22,11 @@ server.get("/", (req, res) => {
 });
 
 server.get("/planets", getAll);
+
+server.get("/planets/:id", getOneByID);
+
+server.post("/planets", createP);
+
+server.put("/planets/:id", updateP);
+
+server.delete("/planets/:id", deleteP);
