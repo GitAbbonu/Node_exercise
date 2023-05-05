@@ -9,8 +9,11 @@ import {
   create,
   updateByID,
   deleteByID,
-  createImg,
-} from "./controllers/planets.js";
+  logIn,
+  logOut,
+} from "./controllers/user.js";
+import authorize from "./authorize.js";
+import "./passport.js";
 
 const server = express();
 const port = 5000;
@@ -57,16 +60,19 @@ server.get("/", (req, res) => {
   res.status(200).json({ msg: "Welcome" });
 });
 
-server.get("/planets", getAll);
+server.get("/users", getAll);
 
-server.get("/planets/:id", getByID);
+server.get("/users/:id", getByID);
 
-server.post("/planets", create);
+//SignUP
+server.post("/users", create);
 
-server.put("/planets/:id", updateByID);
+server.put("/users/:id", updateByID);
 
-server.delete("/planets/:id", deleteByID);
+server.delete("/users/:id", deleteByID);
 
-server.post("/planets/:id/image", upload.single("image"), createImg);
+//LogIN
+server.post("/users/login", logIn);
+server.get("/users/logout", authorize, logOut);
 
 server.listen(port);
